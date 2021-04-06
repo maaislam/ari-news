@@ -4,10 +4,11 @@ import axios from 'axios';
 const useNewsFetcher = (category) => {
   const [news, setNews] = useState([]);
   const API_KEY = process.env.REACT_APP_NEWS_API_KEY;
+  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
   useEffect(() => {
     const getNews = async () => {
       const res = await axios.get(
-        `https://newsapi.org/v2/top-headlines`,
+        `${proxyUrl}https://newsapi.org/v2/top-headlines`,
 
         {
           params: {
